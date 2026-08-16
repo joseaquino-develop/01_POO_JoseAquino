@@ -1,101 +1,153 @@
 package vallegrande.edu.pe.app;
 
-import vallegrande.edu.pe.controller.AgendaController;
-import vallegrande.edu.pe.model.Contacto;
-import vallegrande.edu.pe.view.AgendaView;
+import vallegrande.edu.pe.controller.BibliotecaController;
+import vallegrande.edu.pe.controller.AutorController;
+import vallegrande.edu.pe.model.Libro;
+import vallegrande.edu.pe.model.Autor;
+import vallegrande.edu.pe.view.BibliotecaView;
+
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
 
-        // Crear los componentes
-        AgendaController controller = new AgendaController();
-        AgendaView view = new AgendaView();
+        BibliotecaController controller = new BibliotecaController();
+        AutorController autorController = new AutorController();
 
-        // Mostrar titulo
-        view.mostrarTitulo();
-        // ==========================
-        // CREAR 5 CONTACTOS
-        // ==========================
-        Contacto contacto1 = new Contacto(
-                1,
-                "Ana",
-                "Torres",
-                "Cañete",
-                "983745656",
-                "ana@gmail.com"
-        );
-        Contacto contacto2 = new Contacto(
-                2,
-                "Carlos",
-                "Perez",
-                "Imperial",
-                "951264456",
-                "carlos@gmail.com"
-        );
-        Contacto contacto3 = new Contacto(
-                3,
-                "Jose",
-                "Garcia",
-                "Lima",
-                "987654321",
-                "jose@gmail.com"
-        );
-        Contacto contacto4 = new Contacto(
-                4,
-                "Maria",
-                "Lopez",
-                "Chincha",
-                "976543210",
-                "maria@gmail.com"
-        );
-        Contacto contacto5 = new Contacto(
-                5,
-                "Luis",
-                "Ramirez",
-                "Ica",
-                "965432187",
-                "luis@gmail.com"
-        );
-        // Agregar los 5 contactos
-        controller.agregarContacto(contacto1);
-        controller.agregarContacto(contacto2);
-        controller.agregarContacto(contacto3);
-        controller.agregarContacto(contacto4);
-        controller.agregarContacto(contacto5);
+        BibliotecaView view = new BibliotecaView();
 
-        // MENU PRINCIPAL
+        Scanner scanner = new Scanner(System.in);
+
         int opcion;
-        int siguienteId = 6;
+
+        view.mostrarTitulo();
+
         do {
-            opcion = view.mostrarMenu();
+
+            view.mostrarMenu();
+
+            opcion = scanner.nextInt();
+            scanner.nextLine();
+
             switch (opcion) {
+
+                // =========================
+                // REGISTRAR LIBRO
+                // =========================
                 case 1:
-                    // Registrar
-                    Contacto nuevoContacto = view.leerContacto(siguienteId);
-                    controller.agregarContacto(nuevoContacto);
-                    siguienteId++;
+
+                    System.out.println("ID:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("Titulo:");
+                    String titulo = scanner.nextLine();
+
+                    System.out.println("Autor:");
+                    String autor = scanner.nextLine();
+
+                    System.out.println("Año:");
+                    int anio = scanner.nextInt();
+                    scanner.nextLine();
+
+                    // VALIDAR DATOS
+                    if (titulo.isEmpty() || autor.isEmpty() || anio <= 0) {
+
+                        System.out.println("Datos no validos");
+
+                    } else {
+
+                        Libro libro = new Libro(id, titulo, autor, anio);
+
+                        controller.agregarLibro(libro);
+                    }
+
                     break;
+
+                // =========================
+                // LISTAR LIBROS
+                // =========================
                 case 2:
-                    // Listar
-                    controller.listarContactos();
+
+                    controller.listarLibros();
+
                     break;
+
+                // =========================
+                // BUSCAR LIBRO
+                // =========================
                 case 3:
-                    // Buscar
-                    String criterio = view.leerCriterio();
-                    controller.buscarContacto(criterio);
+
+                    System.out.println("Ingrese Titulo o Autor:");
+
+                    String criterio = scanner.nextLine();
+
+                    controller.buscarLibro(criterio);
+
                     break;
+
+                // =========================
+                // REGISTRAR AUTOR
+                // =========================
                 case 4:
-                    // Eliminar
-                    int id = view.leerId();
-                    controller.eliminarContacto(id);
+
+                    System.out.println("ID del autor:");
+
+                    int idAutor = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("Nombre del autor:");
+
+                    String nombreAutor = scanner.nextLine();
+
+                    // VALIDAR NOMBRE DEL AUTOR
+                    if (nombreAutor.isEmpty()) {
+
+                        System.out.println(
+                                "El nombre del autor no puede estar vacio"
+                        );
+
+                    } else {
+
+                        Autor nuevoAutor = new Autor(
+                                idAutor,
+                                nombreAutor
+                        );
+
+                        autorController.agregarAutor(nuevoAutor);
+                    }
+
                     break;
+
+                // =========================
+                // LISTAR AUTORES
+                // =========================
                 case 5:
-                    // Salir
-                    view.mostrarMensaje("Gracias por utilizar la Agenda de Contactos.");
+
+                    autorController.listarAutores();
+
                     break;
+
+                // =========================
+                // SALIR
+                // =========================
+                case 6:
+
+                    System.out.println("Hasta luego.");
+
+                    break;
+
+                // =========================
+                // OPCION INCORRECTA
+                // =========================
                 default:
-                    view.mostrarMensaje("Opcion no valida. Intente nuevamente.");
+
+                    System.out.println("Opcion no valida");
             }
-        } while (opcion != 5);
+
+        } while (opcion != 6);
+
+        scanner.close();
     }
 }
-
