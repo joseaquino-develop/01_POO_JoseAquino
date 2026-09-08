@@ -1,0 +1,93 @@
+.root {
+    -fx-background-color: #eeeeee;
+}
+
+.tarjeta {
+    -fx-background-color: #f5f5f5;
+
+    -fx-border-color: #111111;
+    -fx-border-width: 2px;
+    -fx-border-radius: 16px;
+
+    -fx-background-radius: 16px;
+
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
+
+    -fx-min-height: 430px;
+    -fx-max-height: 430px;
+}
+
+.logo {
+    -fx-font-size: 55px;
+
+    -fx-min-height: 70px;
+    -fx-alignment: center;
+}
+
+.nombre-app {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111111;
+
+    -fx-padding: -5px 0 5px 0;
+}
+
+.titulo {
+    -fx-font-size: 27px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+
+    -fx-alignment: center;
+
+    -fx-min-width: 280px;
+    -fx-max-width: 280px;
+
+    -fx-min-height: 70px;
+
+    -fx-padding: 3px 0 3px 0;
+}
+
+.descripcion {
+    -fx-font-size: 14px;
+    -fx-text-fill: #444444;
+
+    -fx-alignment: center;
+
+    -fx-min-width: 260px;
+
+    -fx-padding: 0 0 10px 0;
+}
+
+.boton {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+
+    -fx-min-width: 160px;
+    -fx-max-width: 160px;
+
+    -fx-min-height: 34px;
+    -fx-max-height: 34px;
+
+    -fx-background-radius: 5px;
+
+    -fx-cursor: hand;
+}
+
+.boton:hover {
+    -fx-background-color: #333333;
+}
+
+.boton:pressed {
+    -fx-background-color: #555555;
+}
+
+.footer {
+    -fx-font-size: 12px;
+    -fx-text-fill: #eeeeee;
+
+    -fx-padding: 10px 0 0 0;
+}
