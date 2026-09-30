@@ -1,0 +1,118 @@
+/* ============================= */
+/* FONDO PRINCIPAL */
+/* ============================= */
+
+.root {
+    -fx-background-color: #f4f8fb;
+}
+
+
+/* ============================= */
+/* ENCABEZADO */
+/* ============================= */
+
+.header {
+    -fx-background-color: white;
+    -fx-border-color: #0ea5e9;
+    -fx-border-width: 4 0 0 0;
+}
+
+
+.title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b;
+}
+
+
+/* ============================= */
+/* ETIQUETAS */
+/* ============================= */
+
+.label-form {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+
+/* ============================= */
+/* CAMPOS */
+/* ============================= */
+
+.campo {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+    -fx-padding: 11px;
+    -fx-font-size: 14px;
+}
+
+
+.campo:focused {
+    -fx-border-color: #0284c7;
+    -fx-border-width: 2px;
+}
+
+
+/* ============================= */
+/* BOTÓN */
+/* ============================= */
+
+.btn-confirmar {
+    -fx-background-color: #0284c7;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+
+.btn-confirmar:hover {
+    -fx-background-color: #0369a1;
+}
+
+
+/* ============================= */
+/* MENSAJE */
+/* ============================= */
+
+.mensaje {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+
+.mensaje-exito {
+    -fx-text-fill: #16a34a;
+}
+
+
+.mensaje-error {
+    -fx-text-fill: #dc2626;
+}
+
+
+/* ============================= */
+/* PIE DE PÁGINA */
+/* ============================= */
+
+.footer {
+    -fx-background-color: white;
+}
+
+
+.footer-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748b;
+}
