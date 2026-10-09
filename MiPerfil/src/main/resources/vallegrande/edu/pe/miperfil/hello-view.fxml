@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="vallegrande.edu.pe.miperfil.Controller.PerfilController"
+            stylesheets="@style.css"
+            styleClass="root">
+
+    <!-- ENCABEZADO -->
+    <top>
+        <VBox spacing="5" styleClass="header">
+            <padding>
+                <Insets top="25" right="45" bottom="20" left="45"/>
+            </padding>
+
+            <Label text="MI PERFIL" styleClass="title"/>
+
+            <Label text="Completa tus datos académicos y personales"
+                   styleClass="subtitle"/>
+        </VBox>
+    </top>
+
+    <!-- FORMULARIO -->
+    <center>
+        <VBox spacing="18" maxWidth="560" alignment="TOP_CENTER">
+
+            <padding>
+                <Insets top="35" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <!-- NOMBRE -->
+            <VBox spacing="7">
+                <Label text="Nombre completo *" styleClass="label-form"/>
+
+                <TextField fx:id="txtNombre"
+                           promptText="Ingresa tu nombre completo"
+                           styleClass="campo"/>
+            </VBox>
+
+            <!-- CARRERA -->
+            <VBox spacing="7">
+                <Label text="Carrera profesional *" styleClass="label-form"/>
+
+                <TextField fx:id="txtCarrera"
+                           promptText="Ingresa tu carrera profesional"
+                           styleClass="campo"/>
+            </VBox>
+
+            <!-- SEMESTRE -->
+            <VBox spacing="7">
+                <Label text="Semestre académico *" styleClass="label-form"/>
+
+                <ComboBox fx:id="cmbSemestre"
+                          promptText="Selecciona tu semestre"
+                          maxWidth="560"
+                          styleClass="campo"/>
+            </VBox>
+
+            <!-- DATO ADICIONAL -->
+            <VBox spacing="7">
+                <Label text="Dato adicional *" styleClass="label-form"/>
+
+                <TextField fx:id="txtDato"
+                           promptText="Ejemplo: Mi hobby es programar"
+                           styleClass="campo"/>
+            </VBox>
+
+            <!-- BOTÓN -->
+            <Button fx:id="btnConfirmar"
+                    text="CONFIRMAR MI PERFIL"
+                    onAction="#confirmarPerfil"
+                    maxWidth="560"
+                    styleClass="btn-confirmar"/>
+
+            <!-- MENSAJE -->
+            <Label fx:id="lblMensaje"
+                   text=""
+                   wrapText="true"
+                   styleClass="mensaje"/>
+
+        </VBox>
+    </center>
+
+    <!-- PIE DE PÁGINA -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="footer">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="POO con Java - Sesión 05"
+                   styleClass="footer-text"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
